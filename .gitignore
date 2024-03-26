@@ -4,12 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Packer variables
-packer/template/dev.pkrvar.hcl
-
-# Dummy jar for Packer validate
-!packer/template/dummy.jar
-
 ### STS ###
 .apt_generated
 .classpath
