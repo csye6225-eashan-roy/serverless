@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.temporal.TemporalAmount;
 import java.util.logging.Logger;
 
 public class DatabaseService {
