@@ -57,9 +57,9 @@ public class EmailVerificationFunction implements CloudEventsFunction {
         }
         // Extract Cloud Event data and convert to PubSubBody
         String cloudEventData = new String(event.getData().toBytes(), StandardCharsets.UTF_8);
-        logger.info("MAILGUN_API_KEY: " + mailgunApiKey);
-        logger.info("Received message data: " + cloudEventData);
-        logger.info("MAILGUN_DOMAIN: " + mailgunDomain);
+//        logger.info("MAILGUN_API_KEY: " + mailgunApiKey);
+//        logger.info("Received message data: " + cloudEventData);
+//        logger.info("MAILGUN_DOMAIN: " + mailgunDomain);
         PubSubBody body = gson.fromJson(cloudEventData, PubSubBody.class);
 
         if (body != null && body.message != null && body.message.data != null) {
@@ -106,7 +106,7 @@ public class EmailVerificationFunction implements CloudEventsFunction {
         data.put("text", "Please click on the following link to verify your email: " + verificationUrl);
 
         // Log the map to debug
-        data.forEach((key, value) -> logger.info("Key: " + key + ", Value: " + value));
+//        data.forEach((key, value) -> logger.info("Key: " + key + ", Value: " + value));
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.mailgun.net/v3/" + mailgunDomain + "/messages"))
