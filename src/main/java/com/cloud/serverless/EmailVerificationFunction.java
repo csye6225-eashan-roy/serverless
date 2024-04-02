@@ -58,7 +58,7 @@ public class EmailVerificationFunction implements CloudEventsFunction {
         // Extract Cloud Event data and convert to PubSubBody
         String cloudEventData = new String(event.getData().toBytes(), StandardCharsets.UTF_8);
 //        logger.info("MAILGUN_API_KEY: " + mailgunApiKey);
-//        logger.info("Received message data: " + cloudEventData);
+        logger.info("Received message data: " + cloudEventData);
 //        logger.info("MAILGUN_DOMAIN: " + mailgunDomain);
         PubSubBody body = gson.fromJson(cloudEventData, PubSubBody.class);
 
@@ -75,7 +75,7 @@ public class EmailVerificationFunction implements CloudEventsFunction {
             // Update user's verification token and expiry time in the database
             databaseService.updateUserVerificationToken(username, token, expiryTime);
 
-            String verificationUrl = "http://eashanroy.me:8081/v1/verify-email?token=" + token;
+            String verificationUrl = "https://eashanroy.me/v1/verify-email?token=" + token;
 
             try {
                 sendVerificationEmail(username, verificationUrl);
